@@ -1,10 +1,10 @@
 ### Change Data Capture
 
-This repository contains C# OVERENGINEER implementation of a Workflow Enginer Service that applies Change Data Capture (CDC). Everything in this repository is solely cooked up, highly opinionate and applies (barely) Domain-Driven Design architecture. This repository is only for education purposes and shouldn't be seen as a reference source whatsoever.
+This repository contains C# OVERENGINEER implementation of a Workflow Engine Service that applies Change Data Capture (CDC). Everything in this repository is solely cooked up, highly opinionated and applies (barely) Domain-Driven Design architecture. This repository is only for educational purposes and shouldn't be seen as a reference source whatsoever.
 
 ### Example Service: Twitch Chat
 
-The example service is a Workflow Service that takes data from a broker (e.g. `Jetstream`, etc.), process it by storing inside a KV store, and then publish domain events (via another broker, `Jetstream`, `RabbitMQ`, etc.). The KV Store will perform CDC that sink data to an SQL Store (e.g. `SQL Server`, etc.).
+The example service is a Twitch Chat Workflow Engine Service that takes data from a broker (e.g. `Jetstream`, etc.), process it by storing inside a KV store, and then publish domain events (via another broker, `Jetstream`, `RabbitMQ`, etc.). The KV Store will perform CDC that sink data to an SQL Store (e.g. `SQL Server`, etc.).
 
 Business Logic includes:
 - New subscriber -> store that new subscriber twitchUserId in KV Store and emit a `NewSubscriberEvent`
