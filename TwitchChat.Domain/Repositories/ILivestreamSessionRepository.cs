@@ -1,5 +1,6 @@
 using CDC.Contract;
 using TwitchChat.Domain.Aggregates;
+using TwitchChat.Shared.Repositories;
 
 namespace TwitchChat.Domain.Repositories;
 

@@ -4,6 +4,7 @@ using CDC.Contract;
 using Domain.Aggregates.Interfaces;
 using TwitchChat.Domain.Aggregates;
 using TwitchChat.Domain.Entities;
+using TwitchChat.Shared.Repositories;
 
 public interface ILeaderboardSessionRepository: IGenericRepository, ICdcChangeSource<ChatUserLeaderboardSession>
 {
