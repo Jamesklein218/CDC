@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDC.Contract", "CDC.Contrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Domain", "TwitchChat.Domain\TwitchChat.Domain.csproj", "{704E363C-F2C8-4230-8783-AA2A182230C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure", "TwitchChat.Infrastructure\TwitchChat.Infrastructure.csproj", "{9860BADE-E3B2-4692-BA4D-8B00B9422EAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{704E363C-F2C8-4230-8783-AA2A182230C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{704E363C-F2C8-4230-8783-AA2A182230C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{704E363C-F2C8-4230-8783-AA2A182230C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9860BADE-E3B2-4692-BA4D-8B00B9422EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9860BADE-E3B2-4692-BA4D-8B00B9422EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9860BADE-E3B2-4692-BA4D-8B00B9422EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9860BADE-E3B2-4692-BA4D-8B00B9422EAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
