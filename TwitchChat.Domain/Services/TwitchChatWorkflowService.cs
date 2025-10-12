@@ -3,7 +3,6 @@ namespace TwitchChat.Domain.Services;
 using Interfaces;
 using Model;
 using TwitchChat.Domain.Entities;
-using TwitchChat.Domain.Publishers;
 using TwitchChat.Domain.Repositories;
 using TwitchChat.Domain.Aggregates;
 using TwitchChat.Domain.Events;
@@ -13,7 +12,7 @@ public class TwitchChatWorkflowService(
   IUserRepository userRepository,
   ILeaderboardSessionRepository leaderboardSessionRepository,
   ILivestreamSessionRepository livestreamSessionRepository,
-  IWorkflowEventPublisher workflowEventPublisher
+  IEventPublisher eventPublisher
 ) : ITwitchChatWorkflowService
 {
   /// <inheritdoc/>
@@ -50,7 +49,7 @@ public class TwitchChatWorkflowService(
       await userRepository.SaveChangeAsync(token);
     }
 
-    await workflowEventPublisher.PublishAsync(events, token);
+    await eventPublisher.PublishAsync(events, token);
   }
 
   /// <inheritdoc/>
@@ -74,7 +73,7 @@ public class TwitchChatWorkflowService(
     await leaderboardSessionRepository.SaveChangeAsync(token);
 
     // TODO: Make this atomic with SaveChangeAsync by applying base class
-    await workflowEventPublisher.PublishAsync([
+    await eventPublisher.PublishAsync([
       new NewLeaderboardEvent()
     ], token);
 
