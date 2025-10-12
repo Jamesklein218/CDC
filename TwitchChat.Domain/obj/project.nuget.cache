@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "UGHyd9jBHF/hr76fbjdpioOHWVG5Xza1moK41yjMwh1FCY78uriGazk1n68rktFU9ioXQTXZzvUWLiRo/ZHpTg==",
+  "success": true,
+  "projectFilePath": "/Users/khoa/Documents/Project/learn/CDC/TwitchChat.Domain/TwitchChat.Domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/khoa/.nuget/packages/microsoft.extensions.configuration/9.0.9/microsoft.extensions.configuration.9.0.9.nupkg.sha512",
+    "/Users/khoa/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.9/microsoft.extensions.configuration.abstractions.9.0.9.nupkg.sha512",
+    "/Users/khoa/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.9/microsoft.extensions.dependencyinjection.9.0.9.nupkg.sha512",
+    "/Users/khoa/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.9/microsoft.extensions.dependencyinjection.abstractions.9.0.9.nupkg.sha512",
+    "/Users/khoa/.nuget/packages/microsoft.extensions.primitives/9.0.9/microsoft.extensions.primitives.9.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
