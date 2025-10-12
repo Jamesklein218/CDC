@@ -24,21 +24,26 @@ public class TwitchChatWorkflowService(
     {
       var user = await userRepository.GetOrCreateNewAsync(message.TwitchUserId, token);
 
-      user.HandleSubscription(events);
+      user.HandleSubscription();
+
+      events.AddRange(user.DomainEvents);
 
       await userRepository.SaveChangeAsync(token);
     }
     else
     {
-      var session = await leaderboardSessionRepository.GetCurrentSessionAsync(
+      var session = await leaderboardSessionRepository.GetChatUserLeaderboardSessionAsync(
         message.TwitchLivestreamId,
         token
       );
 
-      if (session != null && !session.IsFinished)
+      if (session != null && !session.IsSessionFinished)
       {
         var spamEntry = new SpamEntry();
-        await session.AddSpamEntryAsync(spamEntry, events, token);
+
+        await session.AddSpamEntryAsync(spamEntry, token);
+
+        events.AddRange(session.DomainEvents);
       }
 
       await userRepository.SaveChangeAsync(token);
@@ -54,12 +59,24 @@ public class TwitchChatWorkflowService(
   )
   {
     // Note: In the real implementation, this should be a separate service, because we need to keep track if the twitch Livestream is valid or not.
-    return await livestreamSessionRepository.CreateNewAsync(twitchLiveStreamid, token);
+    var newLiveStreamSession
+      = await livestreamSessionRepository.CreateNewAsync(twitchLiveStreamid, token);
+    await livestreamSessionRepository.SaveChangeAsync(token);
+    return newLiveStreamSession;
   }
 
   /// <inheritdoc/>
   public async Task<LeaderboardSession> CreateLeaderboardSession(string liveStreamSessionId, CancellationToken token)
   {
-    return await leaderboardSessionRepository.CreateNewAsync(liveStreamSessionId, token);
+    var newLeaderboardSession = await leaderboardSessionRepository.CreateNewAsync(liveStreamSessionId, token);
+
+    await leaderboardSessionRepository.SaveChangeAsync(token);
+
+    // TODO: Make this atomic with SaveChangeAsync by applying base class
+    await workflowEventPublisher.PublishAsync([
+      new NewLeaderboardEvent()
+    ], token);
+
+    return newLeaderboardSession;
   }
 }

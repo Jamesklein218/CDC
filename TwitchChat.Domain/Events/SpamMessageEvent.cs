@@ -1,6 +1,8 @@
-namespace TwitchChat.Domain.Values;
+using TwitchChat.Domain.Values;
 
-public class SpamEntry
+namespace TwitchChat.Domain.Events;
+
+public class SpamMessageEvent: SpamEntry, IEvent
 {
   public string UserId { get; set; }
   public string Content { get; set; }

@@ -3,20 +3,38 @@ namespace TwitchChat.Domain.Aggregates;
 using Interfaces;
 using TwitchChat.Domain.Events;
 
-public class ChatUser : IChatUserRoot
+public class ChatUser : BaseAggregateRoot, IChatUserRoot
 {
-  private readonly string _twitchStreamId;
-  private readonly string _twitchUserId;
-  private readonly int _subcribeCount;
-  private readonly int _totalSubcribeMoney;
+  private string _streamSessionId;
+  private string _twitchUserId;
+  private int _subcribeCount;
+  private int _totalSubcribeMoney;
 
-  public string TwichStreamId { get { return _twitchStreamId; } }
+  public string StreamSessionId { get { return _streamSessionId; } }
   public string TwitchUserId { get { return _twitchUserId; } }
   public int SubscribeCount { get { return _subcribeCount; } }
   public long TotalSubcsribeMoney { get { return _totalSubcribeMoney; } }
 
   /// <inheritdoc/>
-  public void HandleSubscription(IEnumerable<IEvent> events)
+  public void HandleSubscription()
   {
+    ArgumentNullException.ThrowIfNullOrEmpty(StreamSessionId, nameof(StreamSessionId));
+    ArgumentNullException.ThrowIfNullOrEmpty(TwitchUserId, nameof(TwitchUserId));
+
+    if (_subcribeCount == 0)
+    {
+      // New Subscriber
+      this.DomainEvents.Append(new NewSubscriberEvent()
+      {
+        LiveStreamSessionId = StreamSessionId,
+        TwitchUserId = TwitchUserId,
+      });
+    }
+
+    this.DomainEvents.Append(new ResubscribeEvent()
+    {
+      LiveStreamSessionId = StreamSessionId,
+      TwitchUserId = TwitchUserId,
+    });
   }
 }
