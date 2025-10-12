@@ -1,4 +1,4 @@
-namespace TwitchChat.Domain.Values;
+namespace TwitchChat.Domain.Model;
 
 public class SpamEntry
 {

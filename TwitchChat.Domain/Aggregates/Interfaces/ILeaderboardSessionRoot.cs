@@ -1,8 +1,8 @@
 namespace TwitchChat.Domain.Aggregates.Interfaces;
 
-using Events;
 using TwitchChat.Domain.Entities;
-using Values;
+using Model;
+using TwitchChat.Shared.Aggregates;
 
 public interface IChatUserLeaderboardSessionRoot: IAggregateRoot
 {

@@ -1,4 +1,4 @@
-using TwitchChat.Domain.Values;
+using TwitchChat.Domain.Model;
 
 namespace TwitchChat.Domain.Entities;
 

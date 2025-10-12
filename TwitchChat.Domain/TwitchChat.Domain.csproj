@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CDC.Contract\CDC.Contract.csproj" />
+    <ProjectReference Include="..\TwitchChat.Shared\TwitchChat.Shared.csproj" />
   </ItemGroup>
 
 </Project>

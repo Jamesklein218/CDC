@@ -1,4 +1,4 @@
-using TwitchChat.Domain.Events;
+using TwitchChat.Shared.Events;
 
 namespace TwitchChat.Domain.Publishers;
 

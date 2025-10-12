@@ -1,8 +1,6 @@
-using System;
-using TwitchChat.Domain.Aggregates.Interfaces;
-using TwitchChat.Domain.Events;
+using TwitchChat.Shared.Events;
 
-namespace TwitchChat.Domain.Aggregates;
+namespace TwitchChat.Shared.Aggregates;
 
 public class BaseAggregateRoot: IAggregateRoot
 {

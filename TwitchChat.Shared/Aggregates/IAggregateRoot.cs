@@ -1,6 +1,6 @@
-using TwitchChat.Domain.Events;
+using TwitchChat.Shared.Events;
 
-namespace TwitchChat.Domain.Aggregates.Interfaces;
+namespace TwitchChat.Shared.Aggregates;
 
 /// <summary>
 /// Marker interface

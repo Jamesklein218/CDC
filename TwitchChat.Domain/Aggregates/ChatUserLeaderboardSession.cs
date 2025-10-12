@@ -1,7 +1,8 @@
 using TwitchChat.Domain.Aggregates.Interfaces;
 using TwitchChat.Domain.Entities;
 using TwitchChat.Domain.Events;
-using TwitchChat.Domain.Values;
+using TwitchChat.Domain.Model;
+using TwitchChat.Shared.Aggregates;
 
 namespace TwitchChat.Domain.Aggregates;
 

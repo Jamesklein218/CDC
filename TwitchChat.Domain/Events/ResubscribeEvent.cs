@@ -1,4 +1,5 @@
 using System;
+using TwitchChat.Shared.Events;
 
 namespace TwitchChat.Domain.Events;
 

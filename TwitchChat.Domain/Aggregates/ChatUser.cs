@@ -2,6 +2,7 @@ namespace TwitchChat.Domain.Aggregates;
 
 using Interfaces;
 using TwitchChat.Domain.Events;
+using TwitchChat.Shared.Aggregates;
 
 public class ChatUser : BaseAggregateRoot, IChatUserRoot
 {

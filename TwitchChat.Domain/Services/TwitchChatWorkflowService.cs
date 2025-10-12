@@ -1,12 +1,13 @@
 namespace TwitchChat.Domain.Services;
 
 using Interfaces;
-using Values;
+using Model;
 using TwitchChat.Domain.Entities;
 using TwitchChat.Domain.Publishers;
 using TwitchChat.Domain.Repositories;
 using TwitchChat.Domain.Aggregates;
 using TwitchChat.Domain.Events;
+using TwitchChat.Shared.Events;
 
 public class TwitchChatWorkflowService(
   IUserRepository userRepository,

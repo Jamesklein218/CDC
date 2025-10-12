@@ -1,4 +1,5 @@
-using TwitchChat.Domain.Values;
+using TwitchChat.Domain.Model;
+using TwitchChat.Shared.Events;
 
 namespace TwitchChat.Domain.Events;
 

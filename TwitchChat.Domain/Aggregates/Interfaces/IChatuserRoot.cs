@@ -1,4 +1,4 @@
-using TwitchChat.Domain.Events;
+using TwitchChat.Shared.Aggregates;
 
 namespace TwitchChat.Domain.Aggregates.Interfaces;
 
