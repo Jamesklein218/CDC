@@ -1,5 +1,3 @@
-using System;
-
 namespace TwitchChat.Domain.Repositories;
 
 public interface IGenericRepository

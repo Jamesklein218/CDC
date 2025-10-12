@@ -1,5 +1,3 @@
-using System;
-using System.Reflection.Metadata;
 using TwitchChat.Domain.Values;
 
 namespace TwitchChat.Domain.Entities;

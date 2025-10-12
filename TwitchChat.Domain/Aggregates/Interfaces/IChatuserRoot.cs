@@ -1,5 +1,3 @@
-using System;
-using System.Numerics;
 using TwitchChat.Domain.Events;
 
 namespace TwitchChat.Domain.Aggregates.Interfaces;

@@ -1,4 +1,3 @@
-using System;
 using TwitchChat.Domain.Aggregates;
 using TwitchChat.Domain.Entities;
 

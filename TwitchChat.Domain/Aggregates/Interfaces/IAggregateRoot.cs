@@ -1,5 +1,3 @@
-using System;
-
 namespace TwitchChat.Domain.Aggregates.Interfaces;
 
 /// <summary>

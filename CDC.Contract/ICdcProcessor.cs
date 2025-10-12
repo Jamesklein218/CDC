@@ -1,5 +1,3 @@
-using System;
-
 namespace CDC.Contract;
 
 public interface ICdcProcessor

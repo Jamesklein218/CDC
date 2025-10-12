@@ -1,7 +1,5 @@
 namespace TwitchChat.Domain.Aggregates;
 
-using System;
-using System.Numerics;
 using Interfaces;
 using TwitchChat.Domain.Events;
 

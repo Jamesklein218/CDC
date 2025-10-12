@@ -1,8 +1,7 @@
-using System;
-using TwitchChat.Domain.Events;
-using TwitchChat.Domain.Values;
-
 namespace TwitchChat.Domain.Aggregates.Interfaces;
+
+using Events;
+using Values;
 
 public interface ILeaderboardSessionRoot
 {

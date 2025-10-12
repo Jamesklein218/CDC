@@ -1,4 +1,3 @@
-using System;
 using TwitchChat.Domain.Events;
 
 namespace TwitchChat.Domain.Publishers;
