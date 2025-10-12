@@ -1,8 +1,9 @@
 using System;
+using TwitchChat.Domain.Repositories;
 
-namespace TwitchChat.Domain.Entities;
+namespace TwitchChat.Domain.Aggregates;
 
-public class LivestreamSession
+public class LiveStreamSession
 {
   string SessionId;
   string TwitchLivestreamId;

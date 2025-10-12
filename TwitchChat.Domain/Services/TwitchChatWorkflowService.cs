@@ -11,6 +11,7 @@ using TwitchChat.Domain.Events;
 public class TwitchChatWorkflowService(
   IUserRepository userRepository,
   ILeaderboardSessionRepository leaderboardSessionRepository,
+  ILivestreamSessionRepository livestreamSessionRepository,
   IWorkflowEventPublisher workflowEventPublisher
 ) : ITwitchChatWorkflowService
 {
@@ -21,9 +22,7 @@ public class TwitchChatWorkflowService(
 
     if (message.MessageType == ChatMessageType.Subscribe)
     {
-      var currentUser = await userRepository.GetUserAsync(message.Username, token);
-
-      var user = currentUser ?? await ChatUserRoot.CreateNewAsync(message.Username, token);
+      var user = await userRepository.GetOrCreateNewAsync(message.TwitchUserId, token);
 
       user.HandleSubscription(events);
 
@@ -49,14 +48,18 @@ public class TwitchChatWorkflowService(
   }
 
   /// <inheritdoc/>
-  public async Task<LivestreamSession> CreateLivestreamSession(string livestreamId, CancellationToken token)
+  public async Task<LiveStreamSession> CreateLivestreamSession(
+    string twitchLiveStreamid,
+    CancellationToken token
+  )
   {
-    return new LivestreamSession();
+    // Note: In the real implementation, this should be a separate service, because we need to keep track if the twitch Livestream is valid or not.
+    return await livestreamSessionRepository.CreateNewAsync(twitchLiveStreamid, token);
   }
 
   /// <inheritdoc/>
-  public async Task<LeaderboardSessionRoot> CreateLeaderboardSession(string liveStreamSessionId, CancellationToken token)
+  public async Task<LeaderboardSession> CreateLeaderboardSession(string liveStreamSessionId, CancellationToken token)
   {
-    return new LeaderboardSessionRoot();
+    return await leaderboardSessionRepository.CreateNewAsync(liveStreamSessionId, token);
   }
 }

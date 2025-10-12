@@ -9,6 +9,6 @@ public class ChatMessage
   public string Id;
   public ChatMessageType MessageType;
   public string Content;
-  public string Username; // PK of user
+  public string TwitchUserId; // PK of user
   public string TwitchLivestreamId;
 }

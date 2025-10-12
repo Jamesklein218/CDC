@@ -5,5 +5,5 @@ namespace TwitchChat.Domain.Repositories;
 
 public interface IUserRepository: IGenericRepository
 {
-  public Task<IChatUserRoot?> GetUserAsync(string UserName, CancellationToken token);
+  public Task<IChatUserRoot> GetOrCreateNewAsync(string UserName, CancellationToken token);
 }

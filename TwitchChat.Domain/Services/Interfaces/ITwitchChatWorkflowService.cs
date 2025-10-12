@@ -14,10 +14,10 @@ public interface ITwitchChatWorkflowService
   /// <summary>
   /// Create a new live stream session business logic
   /// </summary>
-  Task<LivestreamSession> CreateLivestreamSession(string livestreamId, CancellationToken token);
+  Task<LiveStreamSession> CreateLivestreamSession(string livestreamId, CancellationToken token);
 
   /// <summary>
   /// Create new Leaderboard session from a livestream session
   /// </summary>
-  Task<LeaderboardSessionRoot> CreateLeaderboardSession(string liveStreamSessionId, CancellationToken token);
+  Task<LeaderboardSession> CreateLeaderboardSession(string liveStreamSessionId, CancellationToken token);
 }
