@@ -10,5 +10,5 @@ public interface IAggregateRoot
   /// <summary>
   /// Get all domain events of the aggregate roots
   /// </summary>
-  IEnumerable<IEvent> DomainEvents { get; }
+  IEnumerable<IDomainEvent> DomainEvents { get; }
 }

@@ -12,13 +12,13 @@ public class TwitchChatWorkflowService(
   IUserRepository userRepository,
   ILeaderboardSessionRepository leaderboardSessionRepository,
   ILivestreamSessionRepository livestreamSessionRepository,
-  IEventPublisher eventPublisher
+  IDomainEventPublisher eventPublisher
 ) : ITwitchChatWorkflowService
 {
   /// <inheritdoc/>
   public async Task ProcessMessageAsync(ChatMessage message, CancellationToken token)
   {
-    var events = new List<IEvent>();
+    var events = new List<IDomainEvent>();
 
     if (message.MessageType == ChatMessageType.Subscribe)
     {

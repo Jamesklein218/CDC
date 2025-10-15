@@ -1,8 +1,6 @@
-using System;
+namespace TwitchChat.Shared.Messages;
 
-namespace TwitchChat.Shared.Events;
-
-public interface IEventPublisher
+public interface IMessageProducer<TMessage>
 {
   /// <summary>
   /// Take a list of events and publish them.
@@ -10,5 +8,5 @@ public interface IEventPublisher
   /// <param name="events"></param>
   /// <param name="token"></param>
   /// <returns></returns>
-  Task PublishAsync(IEnumerable<IEvent> events, CancellationToken token);
+  Task ProducerMessageAsync(IEnumerable<TMessage> events, CancellationToken token);
 }

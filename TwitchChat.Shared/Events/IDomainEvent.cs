@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace TwitchChat.Shared.Events;
 
-public interface IEvent
+public interface IDomainEvent
 {
   [JsonIgnore]
   string Name { get; }

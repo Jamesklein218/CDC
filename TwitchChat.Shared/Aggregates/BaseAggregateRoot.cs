@@ -4,15 +4,15 @@ namespace TwitchChat.Shared.Aggregates;
 
 public class BaseAggregateRoot: IAggregateRoot
 {
-  private IEnumerable<IEvent> _domainEvents;
-  public IEnumerable<IEvent> DomainEvents {
+  private IEnumerable<IDomainEvent> _domainEvents;
+  public IEnumerable<IDomainEvent> DomainEvents {
     get
     {
       return _domainEvents;
     }
     init
     {
-      _domainEvents = new List<IEvent>();
+      _domainEvents = new List<IDomainEvent>();
     }
   }
 }

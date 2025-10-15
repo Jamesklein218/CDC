@@ -4,7 +4,7 @@ using TwitchChat.Shared.Events;
 
 namespace TwitchChat.Domain.Events;
 
-public class SpamMessageEvent: SpamEntry, IEvent
+public class SpamMessageEvent: SpamEntry, IDomainEvent
 {
   public string Name => "leaderboard.message";
 

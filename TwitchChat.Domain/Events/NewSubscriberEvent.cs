@@ -3,7 +3,7 @@ using TwitchChat.Shared.Events;
 
 namespace TwitchChat.Domain.Events;
 
-public class NewSubscriberEvent : IEvent
+public class NewSubscriberEvent : IDomainEvent
 {
   public string Name => "subscriber.new";
 

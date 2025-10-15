@@ -3,7 +3,7 @@ using TwitchChat.Shared.Events;
 
 namespace TwitchChat.Domain.Events;
 
-public class ResubscribeEvent : IEvent
+public class ResubscribeEvent : IDomainEvent
 {
   public string Name => "suscriber.resubscribe";
 

@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NATS.Client;
 using NATS.Client.JetStream;
-using NATS.Client.Service;
 using TwitchChat.Infrastructure.Messaging.Jetstreams;
 using TwitchChat.Shared.Events;
 
@@ -34,12 +33,12 @@ public static class ServiceCollectionExtensions
       return connection.CreateJetStreamManagementContext();
     });
 
-    services.AddKeyedScoped<IEventPublisher, JetstreamEventPublisher>("JetStream");
+    services.AddKeyedScoped<IDomainEventPublisher, JetstreamEventPublisher>("JetStream");
 
     return services;
   }
 
-  public static IServiceCollection AddJetstreamsListener(this IServiceCollection services, IConfiguration config)
+  public static IServiceCollection AddJetstreamsConsumers(this IServiceCollection services, IConfiguration config)
   {
     return services;
   }
