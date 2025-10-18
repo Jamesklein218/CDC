@@ -1,6 +1,6 @@
 ### Change Data Capture
 
-This repository contains C# OVERENGINEER implementation of a Workflow Engine Service that applies Change Data Capture (CDC). Everything in this repository is solely cooked up, highly opinionated and applies (barely) Domain-Driven Design architecture. This repository is only for educational purposes and shouldn't be seen as a reference source whatsoever.
+This repository contains C# OVERENGINEER implementation of a Workflow Engine Service that applies multiple techniques: CDC, Write-back, etc.. Everything in this repository is solely cooked up, highly opinionated and applies (barely) Domain-Driven Design architecture. This repository is only for educational purposes and shouldn't be seen as a reference source whatsoever.
 
 ### Example Service: Twitch Chat
 

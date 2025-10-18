@@ -5,7 +5,7 @@ namespace TwitchChat.Domain.Events;
 
 public class ResubscribeEvent : IDomainEvent
 {
-  public string Name => "suscriber.resubscribe";
+  public string Name => "subscriber.resubscribe";
 
   [JsonPropertyName(nameof(LiveStreamSessionId))]
   public string LiveStreamSessionId { get; set; }

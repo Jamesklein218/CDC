@@ -6,7 +6,7 @@ namespace TwitchChat.Domain.Events;
 
 public class SpamMessageEvent: SpamEntry, IDomainEvent
 {
-  public string Name => "leaderboard.message";
+  public string Name => "leaderboard.spam-message";
 
   [JsonPropertyName(nameof(TwitchUserId))]
   public string TwitchUserId { get; set; }

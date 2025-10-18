@@ -5,6 +5,7 @@ using NATS.Client;
 using NATS.Client.JetStream;
 using TwitchChat.Infrastructure.Messaging.Jetstreams;
 using TwitchChat.Shared.Events;
+using TwitchChat.Shared.Messages;
 
 namespace TwitchChat.Infrastructure.Messaging;
 
@@ -12,28 +13,8 @@ public static class ServiceCollectionExtensions
 {
   public static IServiceCollection AddJetstreamsPublisher(this IServiceCollection services, IConfiguration config)
   {
-    services.AddSingleton<IConnection>(serviceProvider =>
-    {
-      var connectionFactory = new ConnectionFactory();
-      var options = ConnectionFactory.GetDefaultOptions();
-      options.Url = config["Nats:url"] ?? "nats://localhost:4222";
-      return connectionFactory.CreateConnection(options);
-    });
-
-
-    services.AddSingleton<IJetStream>(serviceProvider =>
-    {
-      var connection = serviceProvider.GetRequiredService<IConnection>();
-      return connection.CreateJetStreamContext();
-    });
-
-    services.AddSingleton<IJetStreamManagement>(serviceProvider =>
-    {
-      var connection = serviceProvider.GetRequiredService<IConnection>();
-      return connection.CreateJetStreamManagementContext();
-    });
-
-    services.AddKeyedScoped<IDomainEventPublisher, JetstreamEventPublisher>("JetStream");
+    services
+      .AddKeyedScoped<IMessageProducer<IDomainEvent>, BaseJetstreamProducer<IDomainEvent>>("JetStream");
 
     return services;
   }
