@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using TwitchChat.Domain.Entities;
 using TwitchChat.Domain.Repositories;
 using TwitchChat.Infrastructure.Persistence.SqlServer;

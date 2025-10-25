@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.Persistence", "TwitchChat.Infrastructure.Persistence\TwitchChat.Infrastructure.Persistence.csproj", "{9E258E9D-788A-4DC5-A400-BF9081F12FF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Application.Worker", "TwitchChat.Application.Worker\TwitchChat.Application.Worker.csproj", "{00DB70FB-76B5-4E3D-89A8-608F85BE3A51}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{9E258E9D-788A-4DC5-A400-BF9081F12FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E258E9D-788A-4DC5-A400-BF9081F12FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E258E9D-788A-4DC5-A400-BF9081F12FF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00DB70FB-76B5-4E3D-89A8-608F85BE3A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00DB70FB-76B5-4E3D-89A8-608F85BE3A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00DB70FB-76B5-4E3D-89A8-608F85BE3A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00DB70FB-76B5-4E3D-89A8-608F85BE3A51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
