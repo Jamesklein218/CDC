@@ -12,6 +12,7 @@ public class ChatMessageEventHandler(
   {
     await chatMessageProducer.ProduceMessageAsync([eventObj], token);
   }
+  
   public async Task BulkHandleAsync(IEnumerable<ChatMessageEvent> events, CancellationToken token)
   {
     await chatMessageProducer.ProduceMessageAsync(events, token);

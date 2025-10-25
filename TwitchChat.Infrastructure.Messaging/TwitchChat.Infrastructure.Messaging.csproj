@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TwitchChat.Shared\TwitchChat.Shared.csproj" />
+    <ProjectReference Include="..\TwitchChat.Domain\TwitchChat.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,18 +1,18 @@
 namespace TwitchChat.Shared.Messages;
 
-public interface IMessageConsumer
+public interface IMessageConsumer<TMessage>
 {
   /// <summary>
   /// Start consuming the messages
   /// </summary>
   /// <param name="token"></param>
   /// <returns></returns>
-  Task StartConsumeAsync(CancellationToken token);
+  Task StartConsumeAsync();
 
   /// <summary>
   /// Start consuming the messaign
   /// </summary>
   /// <param name="token"></param>
   /// <returns></returns>
-  Task StopConsumeAsync(CancellationToken token);
+  Task StopConsumeAsync();
 }

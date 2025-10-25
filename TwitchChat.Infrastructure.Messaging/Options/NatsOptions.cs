@@ -1,7 +1,11 @@
+using System;
+
 namespace TwitchChat.Infrastructure.Messaging.Options;
 
 public class NatsOptions
 {
-  public string Url { get; set; } = "nats://127.0.0.1";
-  public string Port { get; set; } = "4222";
+    public string? ServerUrl { get; set; }
+    public string? Username { get; set; }
+    public string? Password { get; set; }
+    public bool EnableTls { get; set; }
 }
