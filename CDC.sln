@@ -13,6 +13,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.Persistence", "TwitchChat.Infrastructure.Persistence\TwitchChat.Infrastructure.Persistence.csproj", "{9E258E9D-788A-4DC5-A400-BF9081F12FF7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8DEC5017-1AF7-4E62-9FF3-C800C0FD9A57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Domain.UnitTests", "TwitchChat.Domain.UnitTests\TwitchChat.Domain.UnitTests.csproj", "{3FACC90E-3078-4952-84B6-B3CAA99A1083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Application", "TwitchChat.Application\TwitchChat.Application.csproj", "{DAEBAFF6-DDAF-4855-9CD3-03B54622A504}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BEBC0C4-67FE-49EF-A56A-38C053D5DE15}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.Messaging.IntegrationTests", "TwitchChat.Infrastructure.Messaging.IntegrationTests\TwitchChat.Infrastructure.Messaging.IntegrationTests.csproj", "{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.Persistence.IntegrationTests", "TwitchChat.Infrastructure.Persistence.IntegrationTests\TwitchChat.Infrastructure.Persistence.IntegrationTests.csproj", "{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +54,29 @@ Global
 		{9E258E9D-788A-4DC5-A400-BF9081F12FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E258E9D-788A-4DC5-A400-BF9081F12FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E258E9D-788A-4DC5-A400-BF9081F12FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FACC90E-3078-4952-84B6-B3CAA99A1083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FACC90E-3078-4952-84B6-B3CAA99A1083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FACC90E-3078-4952-84B6-B3CAA99A1083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FACC90E-3078-4952-84B6-B3CAA99A1083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAEBAFF6-DDAF-4855-9CD3-03B54622A504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAEBAFF6-DDAF-4855-9CD3-03B54622A504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAEBAFF6-DDAF-4855-9CD3-03B54622A504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAEBAFF6-DDAF-4855-9CD3-03B54622A504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FACC90E-3078-4952-84B6-B3CAA99A1083} = {8DEC5017-1AF7-4E62-9FF3-C800C0FD9A57}
+		{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0} = {8DEC5017-1AF7-4E62-9FF3-C800C0FD9A57}
+		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0} = {8DEC5017-1AF7-4E62-9FF3-C800C0FD9A57}
 	EndGlobalSection
 EndGlobal

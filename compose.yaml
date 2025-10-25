@@ -1,0 +1,7 @@
+﻿services:
+  twitchchat.application:
+    image: twitchchat.application
+    build:
+      context: .
+      dockerfile: TwitchChat.Application/Dockerfile
+
