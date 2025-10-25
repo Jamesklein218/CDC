@@ -1,13 +1,11 @@
 namespace TwitchChat.Domain.Repositories;
 
-using CDC.Contract;
-using Domain.Aggregates.Interfaces;
-using TwitchChat.Domain.Aggregates;
-using TwitchChat.Domain.Entities;
+using Aggregates;
+using Entities;
 using TwitchChat.Shared.Repositories;
 
-public interface ILeaderboardSessionRepository: IGenericRepository, ICdcChangeSource<ChatUserLeaderboardSession>
+public interface ILeaderboardSessionRepository: IGenericRepository<LeaderboardSession>
 {
   Task<LeaderboardSession> CreateNewAsync(string twitchLiveStreamId, CancellationToken token);
-  Task<IChatUserLeaderboardSessionRoot> GetChatUserLeaderboardSessionAsync(string liveStreamId, CancellationToken token);
+  Task<ChatUserLeaderboardSessionRoot?> GetChatUserLeaderboardSessionAsync(string liveStreamId, CancellationToken token);
 }

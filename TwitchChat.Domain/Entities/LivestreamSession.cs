@@ -1,6 +1,5 @@
-namespace TwitchChat.Domain.Aggregates;
+namespace TwitchChat.Domain.Entities;
 public class LiveStreamSession
 {
-  string SessionId;
-  string TwitchLivestreamId;
+  public string TwitchLivestreamId { get; set; }
 }

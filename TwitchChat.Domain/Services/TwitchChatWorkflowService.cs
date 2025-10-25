@@ -2,10 +2,10 @@ namespace TwitchChat.Domain.Services;
 
 using Interfaces;
 using Model;
-using TwitchChat.Domain.Entities;
-using TwitchChat.Domain.Repositories;
-using TwitchChat.Domain.Aggregates;
-using TwitchChat.Domain.Events;
+using Entities;
+using Repositories;
+using Aggregates;
+using Events;
 using TwitchChat.Shared.Events;
 
 public class TwitchChatWorkflowService(
@@ -41,7 +41,7 @@ public class TwitchChatWorkflowService(
       {
         var spamEntry = new SpamEntry();
 
-        await session.AddSpamEntryAsync(spamEntry, token);
+        session.AddSpamEntry(spamEntry);
 
         events.AddRange(session.DomainEvents);
       }

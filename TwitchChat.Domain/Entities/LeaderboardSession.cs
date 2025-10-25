@@ -2,8 +2,10 @@ namespace TwitchChat.Domain.Entities;
 
 public class LeaderboardSession
 {
-  public string LivestreamId { get; }
-  public string ContentToSpam { get; }
-  public DateTimeOffset StartAt { get; }
-  public DateTimeOffset EndAt { get; }
+  public Guid Id { get; set; } = Guid.NewGuid();
+  public string LivestreamId { get; set; }
+  public string ContentToSpam { get; set; }
+  public DateTimeOffset StartAt { get; set; }
+  public DateTimeOffset EndAt { get; set; }
+  public ICollection<ChatUserSessionScore> Participants { get; set; }
 }
