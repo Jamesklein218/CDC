@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TwitchChat.Domain.Repositories;
 using TwitchChat.Infrastructure.Persistence.Repositories;
-using TwitchChat.Infrastructure.Persistence.SqlServer;
 
 namespace TwitchChat.Infrastructure.Persistence;
 

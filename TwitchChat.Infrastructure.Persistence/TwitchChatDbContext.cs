@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using TwitchChat.Domain.Aggregates;
 using TwitchChat.Domain.Entities;
 
-namespace TwitchChat.Infrastructure.Persistence.SqlServer;
+namespace TwitchChat.Infrastructure.Persistence;
 
 public class TwitchChatDbContext : DbContext
 {
