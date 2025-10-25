@@ -22,11 +22,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BEBC0C4-67FE-49EF-A56A-38C053D5DE15}"
 	ProjectSection(SolutionItems) = preProject
 		compose.yaml = compose.yaml
+		nats-auth.conf = nats-auth.conf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.Messaging.IntegrationTests", "TwitchChat.Infrastructure.Messaging.IntegrationTests\TwitchChat.Infrastructure.Messaging.IntegrationTests.csproj", "{B897E5AB-11DE-4A5C-B6DA-6BD5192097E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Infrastructure.Persistence.IntegrationTests", "TwitchChat.Infrastructure.Persistence.IntegrationTests\TwitchChat.Infrastructure.Persistence.IntegrationTests.csproj", "{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchChat.Migrations", "TwitchChat.Migrations\TwitchChat.Migrations.csproj", "{4856D240-3F44-4F3F-8C2F-FCEF99764844}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +73,10 @@ Global
 		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5EECB08-9EA1-4882-AFB2-C324E4EBC7C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4856D240-3F44-4F3F-8C2F-FCEF99764844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4856D240-3F44-4F3F-8C2F-FCEF99764844}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4856D240-3F44-4F3F-8C2F-FCEF99764844}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4856D240-3F44-4F3F-8C2F-FCEF99764844}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

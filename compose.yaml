@@ -1,7 +1,24 @@
 ﻿services:
-  twitchchat.application:
-    image: twitchchat.application
-    build:
-      context: .
-      dockerfile: TwitchChat.Application/Dockerfile
+  nats:
+    image: nats:latest
+    container_name: nats_jetstream
+    command: ["-js", "--config", "/etc/nats/nats-auth.conf"]
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    volumes:
+      - ./nats_data:/data
+      - ./nats-auth.conf:/etc/nats/nats-auth.conf
+    restart: no
 
+  azuresqledge:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    container_name: azure_sql_edge
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'P@assWord!'
+    volumes:
+      - ./mssql_data:/var/opt/mssql
+    restart: no

@@ -4,7 +4,6 @@ using Interfaces;
 using Model;
 using Entities;
 using Repositories;
-using Aggregates;
 using Events;
 using TwitchChat.Shared.Events;
 

@@ -16,7 +16,6 @@ public class ChatUserRoot : BaseAggregateRoot
   
   public ChatUser User { get; set; }
 
-  /// <inheritdoc/>
   public void HandleSubscription()
   {
     ArgumentNullException.ThrowIfNullOrEmpty(StreamSessionId, nameof(StreamSessionId));

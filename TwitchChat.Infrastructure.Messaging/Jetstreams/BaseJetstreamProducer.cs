@@ -5,7 +5,6 @@ using NATS.Client.JetStream.Models;
 using NATS.Net;
 using Polly;
 using Polly.Retry;
-using TwitchChat.Infrastructure.Messaging.Options;
 using TwitchChat.Shared.Events;
 using TwitchChat.Shared.Messages;
 

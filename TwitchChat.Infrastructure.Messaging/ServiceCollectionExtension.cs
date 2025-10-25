@@ -9,7 +9,7 @@ namespace TwitchChat.Infrastructure.Messaging;
 
 public static class ServiceCollectionExtensions
 {
-  public static IServiceCollection AddJetstreamsPublisher(this IServiceCollection services)
+  public static IServiceCollection AddJetstreamMessaging(this IServiceCollection services)
   {
     services
       .AddSingleton<IConnectionFactory, NatsConnectionFactory>()
@@ -17,15 +17,5 @@ public static class ServiceCollectionExtensions
       .AddKeyedSingleton<IMessageConsumer<ChatMessageEvent>, ChatMessageConsumer>("JetStream");
 
     return services;
-  }
-
-  public static void StartConsuming(this IServiceCollection services, IConfiguration config)
-  {
-    var consumer = services.BuildServiceProvider().GetRequiredService<IMessageConsumer<ChatMessageEvent>>();
-    consumer.StartConsumeAsync();
-  }
-  
-  public static void StopConsuming(this IServiceCollection services, IConfiguration config)
-  {
   }
 }

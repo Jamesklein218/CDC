@@ -19,11 +19,8 @@ public class ChatMessageConsumer(
   private INatsJSConsumer JsConsumer { get; set; }
   private CancellationTokenSource Cts { get; set; }
   
-  public async Task StartConsumeAsync()
+  public async Task StartConsumeAsync(CancellationToken token)
   {
-    // Create a global
-    Cts = new CancellationTokenSource();
-    
     // Create a client
     JsClient = connectionFactory.CreateClient();
     JsContext = JsClient.CreateJetStreamContext();
@@ -32,13 +29,14 @@ public class ChatMessageConsumer(
     JsConsumer = await JsContext.CreateOrUpdateConsumerAsync(
       stream: "twitch.chat", 
       config: new ConsumerConfig("twitch.chat.durable"),
-      cancellationToken: Cts.Token);
+      cancellationToken: token);
 
-
+    // Create a global
+    Cts = new CancellationTokenSource();
+    
     // Create a thread to process the consumer
     await Task.Run(async () =>
     {
-      
       // https://nats-io.github.io/nats.net/documentation/jetstream/consume.html#consume-method
       // We utilize pull-based consumer for performance reason, which reduces high contention of messages.
       await foreach (NatsJSMsg<ChatMessageEvent> msg in JsConsumer
@@ -58,7 +56,7 @@ public class ChatMessageConsumer(
     }, Cts.Token);
   }
 
-  public async Task StopConsumeAsync()
+  public async Task StopConsumeAsync(CancellationToken token)
   {
     await Cts.CancelAsync();
   }
