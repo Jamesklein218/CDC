@@ -22,3 +22,29 @@
     volumes:
       - ./mssql_data:/var/opt/mssql
     restart: no
+    
+  migrations:
+    build:
+      context: .
+      dockerfile: ./TwitchChat.Application/Dockerfile.migrations
+    depends_on:
+      - azuresqledge
+    environment:
+      ConnectionStrings__Default: "Server=azure_sql_edge,1433;User Id=sa;Password=P@assWord!;Encrypt=False"
+    restart: "no"
+    
+  twitchchat:
+    build:
+      context: .
+      dockerfile: ./TwitchChat.Application/Dockerfile
+    depends_on:
+      migrations:
+        condition: service_completed_successfully
+      nats:
+        condition: service_started
+      azuresqledge:
+        condition: service_started
+    ports:
+      - "5000:8080"
+    restart: always
+

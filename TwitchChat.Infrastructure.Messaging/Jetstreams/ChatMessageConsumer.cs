@@ -24,15 +24,28 @@ public class ChatMessageConsumer(
     // Create a client
     JsClient = connectionFactory.CreateClient();
     JsContext = JsClient.CreateJetStreamContext();
-    
-    // Create a durable stream
-    JsConsumer = await JsContext.CreateOrUpdateConsumerAsync(
-      stream: "twitch.chat", 
-      config: new ConsumerConfig("twitch.chat.durable"),
-      cancellationToken: token);
 
     // Create a global
     Cts = new CancellationTokenSource();
+    
+    // Create a stream if not exist
+    var subjectToListen = "twitch.chat.message";
+    await JsContext.CreateStreamAsync(new StreamConfig()
+    {
+      Name = "twitch",
+      Subjects = [subjectToListen],
+    }, token);
+
+    // Create a durable consumer
+    JsConsumer = await JsContext.CreateOrUpdateConsumerAsync(
+      stream: "twitch", 
+      config: new ConsumerConfig()
+      {
+        DurableName = subjectToListen,
+        FilterSubject = subjectToListen,
+        AckPolicy = ConsumerConfigAckPolicy.Explicit
+      },
+      cancellationToken: token);
     
     // Create a thread to process the consumer
     await Task.Run(async () =>

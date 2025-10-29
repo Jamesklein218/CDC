@@ -26,20 +26,11 @@ public class BaseJetstreamProducer<T>: IMessageProducer<T> where T: IDomainEvent
 
   private INatsClient JsClient { get; set; }
   private INatsJSContext JsContext { get; set; }
-  private string Name { get; set; }
 
   public BaseJetstreamProducer(IConnectionFactory connectionFactory, String name = null)
   {
-    Name = name; 
-    
-    if (Name == null)
-    {
-      throw new Exception("Invalid stream name");
-    }
-
     JsClient = connectionFactory.CreateClient();
     JsContext = JsClient.CreateJetStreamContext();
-    CreateNewStream(name, name + ".*").GetAwaiter().GetResult();
   }
 
   /// <summary>
