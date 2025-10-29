@@ -36,16 +36,15 @@ public class ChatMessageConsumer(
       Subjects = [subjectToListen],
     }, token);
 
-    // Create a durable consumer
+    // Create a consumer (emphemeral)
     JsConsumer = await JsContext.CreateOrUpdateConsumerAsync(
       stream: "twitch", 
-      config: new ConsumerConfig()
+      config: new ConsumerConfig("twitch_chat_consumer")
       {
-        DurableName = subjectToListen,
         FilterSubject = subjectToListen,
         AckPolicy = ConsumerConfigAckPolicy.Explicit
       },
-      cancellationToken: token);
+      cancellationToken: token);    
     
     // Create a thread to process the consumer
     await Task.Run(async () =>
