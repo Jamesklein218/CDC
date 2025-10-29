@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TwitchChat.Domain.Entities;
 
 public class LeaderboardSession
 {
+  [Key]
   public Guid Id { get; set; } = Guid.NewGuid();
   public string LivestreamId { get; set; }
   public string ContentToSpam { get; set; }

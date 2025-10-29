@@ -1,12 +1,14 @@
+using System.ComponentModel.DataAnnotations;
 using TwitchChat.Domain.Model;
 
 namespace TwitchChat.Domain.Entities;
 
 public class ChatMessage
 {
-  public string Id;
-  public ChatMessageType MessageType;
-  public string Content;
-  public string TwitchUserId;
-  public string TwitchLivestreamId;
+  [Key]
+  public string Id {  get; set; }
+  public ChatMessageType MessageType  {  get; set; }
+  public string Content  { get; set; }
+  public string TwitchUserId  { get; set; }
+  public string TwitchLivestreamId  { get; set; }
 }

@@ -1,19 +1,17 @@
-using Microsoft.EntityFrameworkCore;
 using TwitchChat.Domain.Aggregates;
 using TwitchChat.Domain.Entities;
 using TwitchChat.Domain.Repositories;
-using TwitchChat.Infrastructure.Persistence.SqlServer;
 
 namespace TwitchChat.Infrastructure.Persistence.Repositories;
 
 public class UserRepository(TwitchChatDbContext dbContext): GenericRepository<ChatUser>(dbContext), IUserRepository
 {
-    public async Task<ChatUserRoot> GetOrCreateNewAsync(string UserName, CancellationToken token)
+    public async Task<ChatUserRoot> GetOrCreateNewAsync(string userName, CancellationToken token)
     {
         var newUser = new ChatUser()
         {
-            TwitchUserId = UserName,
-            UserName =  UserName,
+            TwitchUserId = userName,
+            UserName =  userName,
             SubscribeCount = 0,
             TotalSubscribeMoney = 0,
         };

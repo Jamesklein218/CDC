@@ -13,8 +13,8 @@ public static class ServiceCollectionExtensions
   {
     services
       .AddSingleton<IConnectionFactory, NatsConnectionFactory>()
-      .AddKeyedSingleton<IMessageProducer<IDomainEvent>, BaseJetstreamProducer<IDomainEvent>>("JetStream")
-      .AddKeyedSingleton<IMessageConsumer<ChatMessageEvent>, ChatMessageConsumer>("JetStream");
+      .AddSingleton<IMessageProducer<IDomainEvent>, BaseJetstreamProducer<IDomainEvent>>()
+      .AddSingleton<IMessageConsumer<ChatMessageEvent>, ChatMessageConsumer>();
 
     return services;
   }

@@ -22,11 +22,12 @@ public static class ServiceCollectionExtension
         }
 
         services.AddDbContextPool<TwitchChatDbContext>(options =>
-            options.UseSqlServer(connectionString), poolSize);
+            options.UseSqlServer(connectionString,
+                // Add TwitchChat.Migrations as a migration strategy
+                x => x.MigrationsAssembly("TwitchChat.Migrations")),
+            poolSize);
 
         services
-            .AddScoped<IDbContextFactory<TwitchChatDbContext>, DbContextFactory>()
-            .AddScoped(sp => sp.GetRequiredService<DbContextFactory>().CreateDbContext())
             .AddScoped<ILeaderboardSessionRepository, LeaderboardSessionRepository>()
             .AddScoped<ILivestreamSessionRepository, LivestreamSessionRepository>()
             .AddScoped<ILeaderboardSessionRepository, LeaderboardSessionRepository>()

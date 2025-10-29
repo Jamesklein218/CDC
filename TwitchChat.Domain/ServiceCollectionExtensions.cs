@@ -2,7 +2,7 @@
 using TwitchChat.Domain.Services;
 using TwitchChat.Domain.Services.Interfaces;
 
-namespace CDC.Domain;
+namespace TwitchChat.Domain;
 
 public static class ServiceCollectionExtensions
 {

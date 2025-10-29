@@ -1,6 +1,5 @@
 using TwitchChat.Domain.Entities;
 using TwitchChat.Domain.Repositories;
-using TwitchChat.Infrastructure.Persistence.SqlServer;
 
 namespace TwitchChat.Infrastructure.Persistence.Repositories;
 

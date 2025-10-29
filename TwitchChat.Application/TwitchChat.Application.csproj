@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.21">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
@@ -27,5 +27,6 @@
       <ProjectReference Include="..\TwitchChat.Domain\TwitchChat.Domain.csproj" />
       <ProjectReference Include="..\TwitchChat.Infrastructure.Messaging\TwitchChat.Infrastructure.Messaging.csproj" />
       <ProjectReference Include="..\TwitchChat.Infrastructure.Persistence\TwitchChat.Infrastructure.Persistence.csproj" />
+      <ProjectReference Include="..\TwitchChat.Migrations\TwitchChat.Migrations.csproj" />
     </ItemGroup>
 </Project>

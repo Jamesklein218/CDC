@@ -1,9 +1,3 @@
-### Change Data Capture
-
-This repository contains C# OVERENGINEER implementation of a Workflow Engine Service that applies multiple techniques: CDC, Write-back, etc.. Everything in this repository is solely cooked up, highly opinionated and applies (barely) Domain-Driven Design architecture. This repository is only for educational purposes and shouldn't be seen as a reference source whatsoever.
-
-### Example Service: Twitch Chat
-
 The example service is a Twitch Chat Workflow Engine Service that takes data from a broker (e.g. `Jetstream`, etc.), process it by storing inside a KV store, and then publish domain events (via another broker, `Jetstream`, `RabbitMQ`, etc.). The KV Store will perform CDC that sink data to an SQL Store (e.g. `SQL Server`, etc.).
 
 Business Logic includes:
@@ -11,3 +5,15 @@ Business Logic includes:
 - Re-subscribe -> store that new subscriber twitchUserId in KV Store and emit a `ResubscribeEvent`
 - Create a Leaderboard Session for n minutes (emit by using API) -> create a leaderboardSession in KV Store and emit a `NewLeaderboardEvent` inside a service.
 - When a `SpamEvent` is detected, check if the leaderboard session is finished, if not, stored in the KV Store.
+
+Add new migration script:
+
+```
+TwitchChat.Application$ dotnet ef migrations add <migration_name> --project TwitchChat.Migrations
+```
+
+Apply database update
+
+```
+TwitchChat.Application$ dotnet ef database update --project TwitchChat.Migrations
+```

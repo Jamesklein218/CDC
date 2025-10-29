@@ -16,21 +16,25 @@ public class TwitchChatDbContext : DbContext
     {
         
     }
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // ChatUser -- N -- ChatUserSessionScore -- N -- LeaderboardSession
         // PK: ChatUserSessionScore
         modelBuilder.Entity<ChatUserSessionScore>()
-            .HasKey(sessionScore => new { sessionScore.UserId, sessionScore.LeaderboardSessionId });
+            .HasKey(sessionScore => new
+            {
+                sessionScore.UserId,
+                sessionScore.LeaderboardSessionId
+            });
 
         // FK: ChatUserSessionScore -> User
         modelBuilder.Entity<ChatUserSessionScore>()
             .HasOne(cus => cus.User)
             .WithMany(cu => cu.Sessions)
-            .HasForeignKey(cus => cus.UserId); 
+            .HasForeignKey(cus => cus.UserId);
 
-        // FK: ChatUserSessionScore -> LeaderboardSession
+        // FK: ChatUserSessionScore -> LeaderboardSession 
         modelBuilder.Entity<ChatUserSessionScore>()
             .HasOne(cus => cus.LeaderboardSession)
             .WithMany(ls => ls.Participants)
