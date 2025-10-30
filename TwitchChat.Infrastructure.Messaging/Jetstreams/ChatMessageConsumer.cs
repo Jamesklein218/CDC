@@ -56,7 +56,13 @@ public class ChatMessageConsumer(
                        .WithCancellation(Cts.Token))
       {
         // Process the method
-        if (msg.Data != null && await HandleMessageAsync(msg.Data, Cts.Token))
+        if (msg.Data == null)
+        {
+          await msg.AckAsync(cancellationToken: Cts.Token);
+          continue;
+        }
+        
+        if (await HandleMessageAsync(msg.Data, Cts.Token))
         {
           await msg.AckAsync(cancellationToken: Cts.Token);
         }

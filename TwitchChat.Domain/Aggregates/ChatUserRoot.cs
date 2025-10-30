@@ -12,13 +12,10 @@ public class ChatUserRoot : BaseAggregateRoot
   private int _subcribeCount;
   private int _totalSubcribeMoney;
 
-  public string StreamSessionId { get { return _streamSessionId; } }
-  
   public ChatUser User { get; set; }
 
-  public void HandleSubscription()
+  public void HandleSubscription(string streamSessionId)
   {
-    ArgumentNullException.ThrowIfNullOrEmpty(StreamSessionId, nameof(StreamSessionId));
     ArgumentNullException.ThrowIfNullOrEmpty(User.TwitchUserId, nameof(User.TwitchUserId));
 
     if (_subcribeCount == 0)
@@ -26,14 +23,14 @@ public class ChatUserRoot : BaseAggregateRoot
       // New Subscriber
       DomainEvents = DomainEvents.Append(new NewSubscriberEvent()
       {
-        LiveStreamSessionId = StreamSessionId,
+        LiveStreamSessionId = streamSessionId,
         TwitchUserId = User.TwitchUserId,
       });
     }
 
     DomainEvents = DomainEvents.Append(new ResubscribeEvent()
     {
-      LiveStreamSessionId = StreamSessionId,
+      LiveStreamSessionId = streamSessionId,
       TwitchUserId = User.TwitchUserId,
     });
   }

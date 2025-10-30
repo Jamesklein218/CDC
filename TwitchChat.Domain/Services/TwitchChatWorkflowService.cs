@@ -19,33 +19,42 @@ public class TwitchChatWorkflowService(
   {
     var events = new List<IDomainEvent>();
 
-    if (message.MessageType == ChatMessageType.Subscribe)
+    try
     {
-      var user = await userRepository.GetOrCreateNewAsync(message.TwitchUserId, token);
-
-      user.HandleSubscription();
-
-      events.AddRange(user.DomainEvents);
-
-      await userRepository.SaveChangeAsync(token);
-    }
-    else
-    {
-      var session = await leaderboardSessionRepository.GetChatUserLeaderboardSessionAsync(
-        message.TwitchLivestreamId,
-        token
-      );
-
-      if (session != null && !session.IsSessionFinished)
+      if (message.MessageType == ChatMessageType.Subscribe)
       {
-        var spamEntry = new SpamEntry();
+        var user = await userRepository.GetOrCreateNewAsync(message.TwitchUserId, token);
 
-        session.AddSpamEntry(spamEntry);
+        user.HandleSubscription(message.TwitchLivestreamId);
 
-        events.AddRange(session.DomainEvents);
+        events.AddRange(user.DomainEvents);
+
+        await userRepository.SaveChangeAsync(token);
       }
+      else
+      {
+        var session = await leaderboardSessionRepository.GetChatUserLeaderboardSessionAsync(
+          message.TwitchLivestreamId,
+          token
+        );
 
-      await userRepository.SaveChangeAsync(token);
+        if (session != null && !session.IsSessionFinished)
+        {
+          var spamEntry = new SpamEntry();
+
+          session.AddSpamEntry(spamEntry);
+
+          events.AddRange(session.DomainEvents);
+        }
+
+        await userRepository.SaveChangeAsync(token);
+      }
+    }
+    catch (ArgumentException e)
+    {
+      // Invalid data, should be captured and put in an event for tracking
+      Console.WriteLine(e);
+      return;
     }
 
     await eventPublisher.PublishAsync(events, token);
