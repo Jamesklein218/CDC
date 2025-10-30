@@ -17,3 +17,9 @@ Apply database update
 ```
 TwitchChat.Application$ dotnet ef database update --project TwitchChat.Migrations
 ```
+
+TODO:
+- Implement Mock Ingestor to mock the Chat Messages
+- Enable Change Data Capture to SQL Server and implement the
+domain event publisher to ensure atomicity
+- ...
